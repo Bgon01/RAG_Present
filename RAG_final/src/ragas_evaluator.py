@@ -42,7 +42,8 @@ class RAGASEvaluator:
             })
 
         # Evaluate using RAGAS
-        evaluator = RagasEvaluator()
+        evaluator = RagasEvaluator(metrics=["retrieval_precision", "retrieval_recall", "generation_bleu", "generation_rouge"])
+
         scores = evaluator.evaluate_runs(runs)
         return scores
 
